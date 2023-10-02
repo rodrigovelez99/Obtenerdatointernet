@@ -13,18 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.example.marsphotos.fake
 
-package com.example.marsphotos.model
+import com.example.marsphotos.model.MarsPhoto
+import com.example.marsphotos.network.MarsApiService
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-
-/**
- * This data class defines a Mars photo which includes an ID, and the image URL.
- */
-@Serializable
-data class MarsPhoto(
-    val id: String,
-    @SerialName(value = "img_src")
-    val imgSrc: String
-)
+class FakeMarsApiService : MarsApiService {
+    override suspend fun getPhotos(): List<MarsPhoto> {
+        return FakeDataSource.photosList
+    }
+}

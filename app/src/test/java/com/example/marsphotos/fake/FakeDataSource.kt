@@ -13,18 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.example.marsphotos.fake
 
-package com.example.marsphotos.model
+import com.example.marsphotos.model.MarsPhoto
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+object FakeDataSource {
 
-/**
- * This data class defines a Mars photo which includes an ID, and the image URL.
- */
-@Serializable
-data class MarsPhoto(
-    val id: String,
-    @SerialName(value = "img_src")
-    val imgSrc: String
-)
+    private const val idOne = "img1"
+    private const val idTwo = "img2"
+    private const val imgOne = "url.one"
+    private const val imgTwo = "url.two"
+    val photosList = listOf(
+        MarsPhoto(
+            id = idOne,
+            imgSrc = imgOne
+        ),
+        MarsPhoto(
+            id = idTwo,
+            imgSrc = imgTwo
+        )
+    )
+}
